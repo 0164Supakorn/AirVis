@@ -1,0 +1,16 @@
+{% extends 'base_layout.html' %}
+
+{% block body %}
+<h1>Main page</h1>
+<div style="position:fixed;" name="airvisual_widget" key="EsdzGfQX9kBLSqiBT"></div>
+<script type="text/javascript" src="https://www.airvisual.com/scripts/widget_v2.0.js"></script>
+
+<form>
+    <input type="text" name="country" placeholder="Country search">
+    <input type="submit" value="Submit">
+</form>
+
+<p>Country: <b>{{air.country}}</b></p>
+
+
+{% endblock %}
