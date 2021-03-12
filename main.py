@@ -15,9 +15,9 @@ def index():
 
     return render_template("main.html" , air = air)
 
-def get_air(country, API_KEY):
+def get_air(country, AIR_VISUAL_KEY):
     query = quote(country)
-    url = AIR_VISUAL_URL.format(country, API_KEY)
+    url = AIR_VISUAL_URL.format(country, AIR_VISUAL_KEY)
     data = urlopen(url).read()
     parsed = json.loads(data)
     air = None
