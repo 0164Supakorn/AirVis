@@ -5,21 +5,22 @@ import json
 
 main = Blueprint('main', __name__)
 
-AIR_VISUAL_URL = "http://api.airvisual.com/v2/states?country={0}&key={1}"
-AIR_VISUAL_KEY = '60d51ad9-da20-447f-945a-62367f32ac40'
+AIR_VISUAL_URL = "http://api.airvisual.com/v2/nearest_city?key=cca9802f-7691-4bc6-ad75-fe583f6009ae"
 
 @main.route("/")
 def index():
-    country = request.args.get('country')
-    air = get_air(country, AIR_VISUAL_KEY)
+    air = get_nearest()
 
     return render_template("main.html" , air = air)
 
-def get_air(country, AIR_VISUAL_KEY):
-    query = quote(country)
-    url = AIR_VISUAL_URL.format(country, AIR_VISUAL_KEY)
+def get_nearest():
+
+    url = AIR_VISUAL_URL.format()
+
     data = urlopen(url).read()
+
     parsed = json.loads(data)
+
     air = None
     if parsed.get('air'):
 

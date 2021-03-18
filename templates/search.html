@@ -3,4 +3,13 @@
 {% block body %}
 <h1>search page</h1>
 
+<form>
+    <input type="text" name="city" placeholder="City search">
+    <input type="text" name="state" placeholder="State search">
+    <input type="text" name="country" placeholder="Country search">
+    <input type="submit" value="Submit">
+</form>
+
+<p>City: <b>{{air.city}}</b></p>
+
 {% endblock %}

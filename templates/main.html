@@ -2,15 +2,27 @@
 
 {% block body %}
 <h1>Main page</h1>
-<div style="position:fixed;" name="airvisual_widget" key="EsdzGfQX9kBLSqiBT"></div>
-<script type="text/javascript" src="https://www.airvisual.com/scripts/widget_v2.0.js"></script>
-
-<form>
-    <input type="text" name="country" placeholder="Country search">
-    <input type="submit" value="Submit">
-</form>
-
-<p>Country: <b>{{air.country}}</b></p>
-
+<p>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#thailand" aria-expanded="false" aria-controls="thailand">Thailand</button>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#newyork" aria-expanded="false" aria-controls="newyork">New York</button>
+  </p>
+  <div class="row">
+    <div class="col">
+      <div class="collapse multi-collapse" id="thailand">
+        <div class="card card-body">
+            <div name="airvisual_widget" key="EsdzGfQX9kBLSqiBT"></div>
+            <script type="text/javascript" src="https://www.airvisual.com/scripts/widget_v2.0.js"></script>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="collapse multi-collapse" id="newyork">
+        <div class="card card-body">
+            <div name="airvisual_widget" key="XWvBAKbDQ48X3piqx"></div>
+            <script type="text/javascript" src="https://www.airvisual.com/scripts/widget_v2.0.js"></script>
+        </div>
+      </div>
+    </div>
+  </div>
 
 {% endblock %}
