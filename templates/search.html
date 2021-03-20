@@ -1,15 +1,45 @@
 {% extends 'base_layout.html' %}
 
 {% block body %}
-<h1>search page</h1>
+<h1>Search Page (Bangkok, Thailand)</h1>
 
-<form>
-    <input type="text" name="city" placeholder="City search">
-    <input type="text" name="state" placeholder="State search">
-    <input type="text" name="country" placeholder="Country search">
-    <input type="submit" value="Submit">
-</form>
+<div class="row mb-3">
+    <form>
+        <input type="text" name="city" placeholder="City search">
+        <input type="submit" value="Submit">
+    </form>
+</div>
 
-<p>City: <b>{{air.city}}</b></p>
+<h3>City: <b>{{data.city}}</b></h3> 
+<h3>Temperature: <b>{{data.tp}} °C</b>, AQI US: <b>{{data.aqius}}</b></h3>
+
+<br>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h3 style="text-align: center;">Keyword</h3>
+            </div>
+        </div> 
+    </div>
+</div>
+<div class="row">
+    {% for a in data_list %}   
+    <div class="col-sm-2">
+        <div class="card">
+            <div class="card-body">
+                {% print(a+"\n") %}
+            </div>
+        </div> 
+    </div>
+    {% endfor %}
+</div>
 
 {% endblock %}
+
+
+
+
+
+
+
