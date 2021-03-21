@@ -1,28 +1,75 @@
 {% extends 'base_layout.html' %}
 
 {% block body %}
-<h1>Main page</h1>
+<h1>Home</h1>
 <p>
-    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#thailand" aria-expanded="false" aria-controls="thailand">Thailand</button>
-    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#newyork" aria-expanded="false" aria-controls="newyork">New York</button>
-  </p>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#bangkok"
+    aria-expanded="false" aria-controls="bangkok">Bangkok</button>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#newyork"
+    aria-expanded="false" aria-controls="newyork">New York</button>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#tokyo" aria-expanded="false"
+    aria-controls="tokyo">Tokyo</button>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#moscow" aria-expanded="false"
+    aria-controls="moscow">Moscow</button>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#london" aria-expanded="false"
+    aria-controls="london">London</button>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#beijing"
+    aria-expanded="false" aria-controls="beijing">Beijing</button>
+</p>
+</p>
+<div class="row">
+  <div class="col">
+    <div class="collapse multi-collapse" id="bangkok">
+      <div class="card card-body" style="background-color: rgb(88, 203, 231,0);">
+        <div name="airvisual_widget" key="EsdzGfQX9kBLSqiBT"></div>
+        <script type="text/javascript" src="https://www.airvisual.com/scripts/widget_v2.0.js"></script>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="collapse multi-collapse" id="newyork">
+      <div class="card card-body" style="background-color: rgb(88, 203, 231,0);">
+        <div name="airvisual_widget" key="XWvBAKbDQ48X3piqx"></div>
+        <script type="text/javascript" src="https://www.airvisual.com/scripts/widget_v2.0.js"></script>
+      </div>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col">
-      <div class="collapse multi-collapse" id="thailand">
-        <div class="card card-body">
-            <div name="airvisual_widget" key="EsdzGfQX9kBLSqiBT"></div>
-            <script type="text/javascript" src="https://www.airvisual.com/scripts/widget_v2.0.js"></script>
+      <div class="collapse multi-collapse" id="tokyo">
+        <div class="card card-body" style="background-color: rgb(88, 203, 231,0);">
+          <div name="airvisual_widget" key="xTaeAnb3X7ES9sDps"></div>
+          <script type="text/javascript" src="https://www.airvisual.com/scripts/widget_v2.0.js"></script>
         </div>
       </div>
     </div>
     <div class="col">
-      <div class="collapse multi-collapse" id="newyork">
-        <div class="card card-body">
-            <div name="airvisual_widget" key="XWvBAKbDQ48X3piqx"></div>
-            <script type="text/javascript" src="https://www.airvisual.com/scripts/widget_v2.0.js"></script>
+      <div class="collapse multi-collapse" id="moscow">
+        <div class="card card-body" style="background-color: rgb(88, 203, 231,0);">
+          <div name="airvisual_widget" key="vSWyovx8F7fLRXt7x"></div>
+          <script type="text/javascript" src="https://www.airvisual.com/scripts/widget_v2.0.js"></script>
         </div>
       </div>
     </div>
   </div>
 
-{% endblock %}
+  <div class="row">
+    <div class="col">
+      <div class="collapse multi-collapse" id="london">
+        <div class="card card-body" style="background-color: rgb(88, 203, 231,0);">
+          <div name="airvisual_widget" key="XSivPSN9FuA7jDJYW"></div>
+          <script type="text/javascript" src="https://www.airvisual.com/scripts/widget_v2.0.js"></script>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="collapse multi-collapse" id="beijing">
+        <div class="card card-body" style="background-color: rgb(88, 203, 231,0);">
+          <div name="airvisual_widget" key="SepeMnMCYurQ6iQbs"></div>
+          <script type="text/javascript" src="https://www.airvisual.com/scripts/widget_v2.0.js"></script>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}

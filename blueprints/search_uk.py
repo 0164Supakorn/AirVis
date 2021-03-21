@@ -1,27 +1,27 @@
-from flask import Flask, Blueprint, render_template, request, jsonify
+from flask import Flask, Blueprint, render_template, request
 from urllib.parse import quote
 from urllib.request import urlopen
 import json
 
-search = Blueprint('search', __name__)
+search_uk = Blueprint('search_uk', __name__)
 
-bangkok_city = "http://api.airvisual.com/v2/city?city={0}&state=bangkok&country=thailand&key=cca9802f-7691-4bc6-ad75-fe583f6009ae"
-bangkok_city_list = "http://api.airvisual.com/v2/cities?state={0}&country=thailand&key=cca9802f-7691-4bc6-ad75-fe583f6009ae"
+uk_city = "http://api.airvisual.com/v2/city?city={0}&state=england&country=United%20Kingdom&key=cca9802f-7691-4bc6-ad75-fe583f6009ae"
+uk_city_list = "http://api.airvisual.com/v2/cities?state=england&country={0}&key=cca9802f-7691-4bc6-ad75-fe583f6009ae"
 
-@search.route('/search')
-def searchpage():
+@search_uk.route('/search_uk')
+def uksearchpage():
     city = request.args.get('city')
     if not city:
-        city = 'bangkok'
-    bangkok = 'bangkok'
-    data = get_bangkok(city)
-    data_list = get_bangkok_list(bangkok)
-    return render_template("search.html", data=data, data_list=data_list)
+        city = 'london'
+    uk = 'United Kingdom'
+    data = get_uk(city)
+    data_list = get_uk_list(uk)
+    return render_template("search_uk.html", data=data, data_list=data_list)
 
-def get_bangkok(city):
+def get_uk(city):
     try:
         query = quote(city)
-        url = bangkok_city.format(query)
+        url = uk_city.format(query)
         data = urlopen(url).read()
         parsed = json.loads(data)
         data = None
@@ -33,11 +33,14 @@ def get_bangkok(city):
             country = parsed['data']['country']
             aqius = parsed['data']['current']['pollution']['aqius']
             tp = parsed['data']['current']['weather']['tp']
+            icon = parsed['data']['current']['weather']['ic']
+            url_icon = f"https://www.airvisual.com/images/{icon}.png"
             data = {'city': city,
                 'state': state,
                 'country': country,
                 'aqius': aqius,
-                'tp': tp
+                'tp': tp,
+                'url_icon':url_icon
                 }
         return data
     except:
@@ -46,18 +49,17 @@ def get_bangkok(city):
                 'aqius': "Not found"}
         return data
 
-def get_bangkok_list(bangkok):
+def get_uk_list(uk):
     try:
-        query = quote(bangkok)
-        url = bangkok_city_list.format(query)
+        query = quote(uk)
+        url = uk_city_list.format(query)
         data = urlopen(url).read()
         parsed = json.loads(data)
         data = []
         if parsed.get('data'):
-            for i in range(42):
-                city = parsed['data'][i]['city']
-                data.append(city)
+            for i in range(166):
+                state = parsed['data'][i]['city']
+                data.append(state)
         return data
     except:
-        data = {'city': "City not found"}
         return data
