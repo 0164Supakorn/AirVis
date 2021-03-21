@@ -4,6 +4,7 @@
 ณัฐิวุฒิ เอกธาราวงศ์ 61102010423
 
 ก่อนจะรันต้องลง Python โดยใช้ Library ดังนี้
+pip install flask
 pip install -U MarkupSafe
 pip install feedparser
 pip install Flask-WTF
